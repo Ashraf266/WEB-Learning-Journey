@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Project</title>
+    <meta name="author" content="Mohamed Ashraf">
+    <meta name="description" content="My HTML Project">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to The Little Taco Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About LTS</a></li>
+                <li><a href="index.html#menu">Our Menu</a></li>
+                <li><a href="hours.html">Store Hours</a></li>
+            </ul>
+
+
+        </nav>
+        <figure>
+            <img src="img/tacos_and_drink_400x267.png" alt="Taco and Drinks Image" width="400" height="267">
+            <figcaption>Tacos and Drinks</figcaption>
+        </figure>
+    </header>
+
+    <hr>
+
+    <main>
+        <article>
+            <h2>Our Contact Form</h2>
+
+            <form action="https://httpbin.org/get" method="get">
+
+                <fieldset>
+                    <legend>Send Us a Message</legend>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="your name" required>
+                    </p>
+                    <p>
+
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="your email" required>
+
+                    </p>
+
+                    <label for="msg">Your Message:</label>
+                    <br>
+                    <textarea name="msg" id="msg" placeholder="Type your message here" cols="40" rows="10"></textarea>
+                </fieldset>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </article>
+
+        <article>
+            <h2>Our Location</h2>
+            <address>
+                <p>address .....</p>
+                <p>Phone: <a href="tel:+5555555555">555-555-5555</a></p>
+            </address>
+        </article>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>Copyright &copy; The Little Taco Shop</p>
+    </footer>
+
+</body>
+
+</html>
