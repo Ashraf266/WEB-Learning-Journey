@@ -1,0 +1,65 @@
+/* Universal selector: it selects all elements */
+* {
+    font-family: monospace;
+    /* border: 3px solid black; */
+}
+
+html {
+    font-size: 22px;
+}
+
+/* element selector */
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* won't apply because of the universal selector */
+    /* border: 3px solid black; */ /* isn't inherited */
+}
+
+main {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* won't apply because of the universal selector */
+}
+
+/* form elements do not inherit font settings */
+button, input, textarea, select {
+    font: inherit;
+}
+
+/* comma is imporatant here */
+h1, h2 {
+    color: blue;
+}
+
+p {
+    color: purple/*!important*/; /*important override everything*/
+}
+
+/* last would be applied */
+p {
+    color: red;
+}
+
+/* searching for span elements inside of p element */
+p span {
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+/* class selector */
+.highlight {
+    background-color: silver;
+}
+
+
+/* Classes are more specific and they overrule the general tag selector */
+.gray {
+    color: gray;
+}
+
+/* ID selectors are more specific than classes */
+/* rarely used in CSS */
+#second {
+    color: blue;
+    font-style: italic;
+}
+
+/* element < classes < id */
+
