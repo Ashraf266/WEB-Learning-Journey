@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+    checkResult('rock');
+    ">Rock</button>
+    <button onclick="
+    checkResult('paper');
+    ">Paper</button>
+    <button onclick="
+    checkResult('scissors');
+    ">Scissors</button>
+
+
+
+    <script>
+        function function1() {
+            console.log('Hello World');
+        }
+
+        function1();
+        function1();
+
+        function pickComputerMove() {
+            computer = Math.floor(Math.random() * 10 % 3);
+            if (computer == 0) {
+                return 'rock';
+            }
+            else if (computer == 1) {
+                return 'paper'
+            }
+            else {
+                return 'scissors'
+            }
+        }
+
+        function checkResult(you, computer = pickComputerMove()) {
+            if (you === computer) {
+                alert(`Computer chose ${computer}, it's a tie`);
+            }
+            else {
+                if (computer === 'rock' && you === 'paper') {
+                    alert(`Computer chose ${computer}, you won`);
+                }
+                else if (computer === 'paper' && you === 'scissors') {
+                    alert(`Computer chose ${computer}, you won`);
+                }
+                if (computer === 'scissors' && you === 'rock') {
+                    alert(`Computer chose ${computer}, you won`);
+                }
+                else {
+                    alert(`Computer chose ${computer}, you lost`);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
