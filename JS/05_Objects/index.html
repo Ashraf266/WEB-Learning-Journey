@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+    checkResult('rock');
+    ">Rock</button>
+    <button onclick="
+    checkResult('paper');
+    ">Paper</button>
+    <button onclick="
+    checkResult('scissors');
+    ">Scissors</button>
+    <button onclick="
+    resetScore();
+    ">Reset Score</button>
+
+
+
+    <script>
+
+        /* Object syntax */
+        const product = {
+            name: 'socks',
+            price: 1090,
+            // delivery-time: '1day', error because of the minus sign
+            //if we have only string between the brackets the brackest is optional ['string'] === 'string'
+            ['delivery-time']: '1 day',
+            'socks-stock': 50,
+            rating: {
+                stars: 4.5,
+                count: 87
+            },
+            //adding a method
+            func: function function1() {
+                console.log('function inside product object');
+            }
+        };
+
+        console.log(product);
+        console.log(typeof product);
+        //dot notation
+        console.log(product.name);
+        //bracket notation in bracket we can also use calculations and variables not only strings
+        console.log(product['name']);
+        console.log(product.price);
+
+        //console.log(product.delivery-time); error
+        console.log(product['delivery-time']);
+
+        console.log(product.rating.stars);
+        console.log(product['rating']['stars']);
+
+        product.name = 'cotton-socks';
+        console.log(product);
+
+        /* add new property */
+        product.available = true;
+        console.log(product);
+
+        /* delete property */
+        delete product.available;
+        console.log(product);
+
+        product.func();
+        product['func']();
+        console.log(typeof product.func);
+
+        //JSON uses double quotes (No single quotes) and cannot include functions {"name": "socks", "price": 1090} it's basically JS object with less features but it's more universal can be used by more than one programming language
+
+        //stringfy results a string not a JSON object
+        console.log(JSON.stringify(product));
+
+        //turn JSON string into an object
+        console.log(JSON.parse(JSON.stringify(product)));
+
+        //Objects are refrences to the location of the data inside the memory and when i assign object to another it doesn't create a copy of the data to another location of the memory it just copies the refrence
+
+        const object1 = {message: 'hello'};
+        const object2 = object1;
+        object1.message= 'world';
+        console.log(object2.message); // -> prints world
+
+
+        //we cannot compare object directly
+        const object3 = {message: 'world'};
+        
+        console.log(object3 === object1); // false compares refrences
+        console.log(object2 === object1);
+        
+        const object4 = {message: 'world', price: 799};
+
+        const message_normal_way = object4.message;
+        const {message, price} = object4; // destructuring shortcut
+        console.log(message, price);
+
+
+        const object5 = {
+            //message: message the property and the variable name is the same so we can write it once
+            message, // shorthand property
+            //shorthand method
+            /* method: function func() {
+                console.log('method');
+            }*/
+            method() {
+                console.log('method');
+            }
+        };
+
+        console.log(object5);
+        object5.method();
+
+
+        
+
+
+
+
+        //we need a local storage object to store the result of the game so that it doesn't disappear when the page is refreshed
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        };
+
+        console.log(localStorage.getItem('score'));
+        console.log(JSON.parse(localStorage.getItem('score')));
+
+        function pickComputerMove() {
+            computer = Math.floor(Math.random() * 10 % 3);
+            if (computer == 0) {
+                return 'rock';
+            }
+            else if (computer == 1) {
+                return 'paper'
+            }
+            else {
+                return 'scissors'
+            }
+        }
+
+        function checkResult(you, computer = pickComputerMove()) {
+            if (you === computer) {
+                score.ties++;
+                alert(`you chose ${you}, Computer chose ${computer}, it's a tie\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+            }
+            else {
+                if (computer === 'rock' && you === 'paper') {
+                    score.wins++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you won\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+                else if (computer === 'paper' && you === 'scissors') {
+                    score.wins++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you won\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+                else if (computer === 'scissors' && you === 'rock') {
+                    score.wins++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you won\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+                else {
+                    score.losses++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you lost\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+            }
+
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+
+        function resetScore() {
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+
+            localStorage.removeItem('score');
+        }
+    </script>
+
+</body>
+
+</html>
