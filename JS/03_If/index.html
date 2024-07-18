@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+    computer= Math.floor(Math.random() * 10 % 3);
+    console.log(`Computer: ${computer}`);
+    if(computer == 0)
+    {
+        alert('Computer chose Rock, It\'s a tie');
+    }
+    else if(computer == 1)
+    {
+        alert('Computer chose Paper, you lost');
+    }
+    else
+    {
+        alert('Computer chose Scissors, you won');
+    }
+    
+    ">Rock</button>
+    <button onclick="
+    computer= Math.floor(Math.random() * 10 % 3);
+    console.log(`Computer: ${computer}`);
+    if(computer == 0)
+    {
+        alert('Computer chose Rock, you won');
+    }
+    else if(computer == 1)
+    {
+        alert('Computer chose Paper, It\'s a tie');
+    }
+    else
+    {
+        alert('Computer chose Scissors, you lost');
+    }
+    
+    ">Paper</button>
+    <button onclick="
+    computer= Math.floor(Math.random() * 10 % 3);
+    console.log(`Computer: ${computer}`);
+    if(computer == 0)
+    {
+        alert('Computer chose Rock, you lost');
+    }
+    else if(computer == 1)
+    {
+        alert('Computer chose Paper, you won');
+    }
+    else
+    {
+        alert('Computer chose Scissors, It\'s a tie');
+    }
+    
+    ">Scissors</button>
+
+
+    <script>
+        let computer = 0;
+    </script>
+</body>
+
+</html>
