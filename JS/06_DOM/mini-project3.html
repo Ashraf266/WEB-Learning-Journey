@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini project</title>
+</head>
+
+<body>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input type="text" id="price" placeholder="Cost of Order" onkeydown="
+        handleCostKeyDown(event);
+    ">
+
+    <button onclick="
+        // console.log(event);
+        calculateTotal();
+        ">Calculate</button>
+
+    <p id="result"></p>
+
+
+
+    <script>
+        function handleCostKeyDown(event) {
+            //console.log(event); -> event is a special object
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('#price');
+            const resultElement = document.querySelector('#result');
+            let cost = Number(inputElement.value);
+            if (cost < 40) {
+                cost += 10;
+            }
+            else {
+
+            }
+            resultElement.innerHTML = `$${cost}`;
+        }
+    </script>
+</body>
+
+</html>

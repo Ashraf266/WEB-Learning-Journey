@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+    checkResult('rock');
+    ">Rock</button>
+    <button onclick="
+    checkResult('paper');
+    ">Paper</button>
+    <button onclick="
+    checkResult('scissors');
+    ">Scissors</button>
+    <button onclick="
+    resetScore();
+    ">Reset Score</button>
+
+
+
+    <script>
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        };
+
+        function pickComputerMove() {
+            computer = Math.floor(Math.random() * 10 % 3);
+            if (computer == 0) {
+                return 'rock';
+            }
+            else if (computer == 1) {
+                return 'paper'
+            }
+            else {
+                return 'scissors'
+            }
+        }
+
+        function checkResult(you, computer = pickComputerMove()) {
+            if (you === computer) {
+                score.ties++;
+                alert(`you chose ${you}, Computer chose ${computer}, it's a tie\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+            }
+            else {
+                if (computer === 'rock' && you === 'paper') {
+                    score.wins++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you won\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+                else if (computer === 'paper' && you === 'scissors') {
+                    score.wins++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you won\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+                else if (computer === 'scissors' && you === 'rock') {
+                    score.wins++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you won\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+                else {
+                    score.losses++;
+                    alert(`you chose ${you}, Computer chose ${computer}, you lost\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`);
+                }
+            }
+
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+
+        function resetScore() {
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+
+            localStorage.removeItem('score');
+        }
+    </script>
+
+</body>
+
+</html>

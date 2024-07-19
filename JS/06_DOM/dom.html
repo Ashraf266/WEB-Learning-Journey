@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <button onclick="
+        document.querySelector('button').innerHTML += '1';
+        ">Hello</button>
+
+        <button class="js-button">Second Button</button>
+
+
+
+
+
+
+
+
+    <script>
+        /*console.log(document.title);
+        document.title = 'New Title';
+
+        console.log(document.body);
+        console.log(typeof document.body);
+
+        console.log(document.body.innerHTML);
+        document.body.innerHTML = '<button>Hi</button>'*/
+
+        //document.querySelector() method lets us get any html from the page into JS
+        console.log(document.querySelector('button')); //gets the first button element in the page
+        //each html element has property inner html which is the content inside of the element
+        console.log(document.querySelector('button').innerHTML);
+
+        document.querySelector('button').innerHTML = 'changed';
+
+        //using class selector we can use same selectors as css
+        console.log(document.querySelector('.js-button').innerHTML);
+
+        const secondButtonElement = document.querySelector('.js-button').innerHTML;
+
+        // document.body.innerHTML = 'hello';
+        // document.title = 'Hello World!';
+
+        //window is consider the browser and we don't have to type window. each time we use one of its methods
+        console.log(window.document);
+        console.log(window.console);
+        window.console.log('Hello');
+    </script>
+
+
+</body>
+</html>
