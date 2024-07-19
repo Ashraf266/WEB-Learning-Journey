@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  padding: 10%;
+  font-size: 1.5rem;
+  /* color: purple; */
+  font-family: "Rubik", sans-serif;
+}
+
+p {
+  /* text-decoration: line-through; -> underline, none, overline */
+  /* text-transform: uppercase; */
+  /* text-align: justify; */
+  /* text-indent: 2em; */
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  word-spacing: 0.1em;
+
+  font-weight: 400;
+  /* font-style: italic; */
+}
+
+/* 
+input, button {
+  font: inherit;
+} */
