@@ -1,0 +1,48 @@
+:root {
+  --raduis: 120px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(25, 25, 25);
+  color: white;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.move {
+  background-color: transparent;
+  color: white;
+  width: var(--raduis);
+  height: var(--raduis);
+  border-radius: var(--raduis);
+  border: 3px solid white;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.result {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.score {
+  margin-top: 50px;
+}
+
+.reset-button {
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 10px;
+  cursor: pointer;
+}
