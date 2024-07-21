@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Loops</title>
+</head>
+
+<body>
+
+    
+
+
+
+
+
+    <script>
+        let arr = [10, 20, 30];
+        window.console.log(arr);
+
+        arr[0] = 1;
+        console.log(arr);
+
+        randomArr = [1, 2, 'hello', null, true, [1,2,3], {name: 'socks'}];
+        console.log(Array.isArray([1,2]));
+
+        console.log(arr.length);
+
+        arr.push(2);
+        arr.push(3);
+
+        console.log(arr);
+
+        console.log(arr.splice(0, 2));
+        console.log(arr);
+
+
+        let i = 1;
+
+        while(i <= 5) {
+            console.log(i);
+            i++;
+        }
+
+        for(let i=0; i<5; i++)
+        {
+            console.log(i);
+        }
+
+
+        const todolist= ['make dinner', 'wash dishes', 'watch a movie'];
+
+        for(let i =0; i< todolist.length; i++)
+        {
+            console.log(todolist[i]);
+        }
+
+
+
+        const nums = [1,2,3];
+
+        const array1 = [2,3,4];
+        const array2 = array1;
+
+        /* arrays are refrences */
+        array2.push(55);
+
+        console.log(array1);
+
+        /* to make a copy */
+        const array3 = array1.slice();
+
+        const array4 = [1,2,3];
+        const [first, second] = array4;
+
+        console.log(first, second);
+
+    </script>
+</body>
+
+</html>
